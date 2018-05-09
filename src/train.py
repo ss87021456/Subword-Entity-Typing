@@ -40,11 +40,11 @@ config = tf.ConfigProto()
 config.gpu_options.per_process_gpu_memory_fraction = 0.3
 set_session(tf.Session(config=config))
 
-def run(model_dir, model_type, pre=True, embedding=None, subword=False, attention=False):
+def run(model_dir, model_type, pre=False, embedding=None, subword=False, attention=False):
     # Parse directory name
     if not model_dir.endswith("/"):
         model_dir += "/"
-    # Load models
+    ## Load models
     if subword:
         mlb = pkl.load(open(model_dir + "mlb_w_subword_filter.pkl", 'rb'))
         tokenizer = pkl.load(open(model_dir + "tokenizer_w_subword_filter.pkl", 'rb'))
@@ -110,6 +110,8 @@ def run(model_dir, model_type, pre=True, embedding=None, subword=False, attentio
     if subword:
         X_test = pkl.load(open(model_dir + "testing_data_w_subword_filter.pkl", 'rb'))
         X_test_mention = pkl.load(open(model_dir + "testing_mention_w_subword_filter.pkl", 'rb'))
+        print(X_test_mention.shape)
+        exit()
         y_test = pkl.load(open(model_dir + "testing_label_w_subword_filter.pkl", 'rb'))
     else:
         X_test = pkl.load(open(model_dir + "testing_data_wo_subword_filter.pkl", 'rb'))
@@ -154,12 +156,12 @@ def run(model_dir, model_type, pre=True, embedding=None, subword=False, attentio
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument("--pre", type=bool, help="Use pretrained embedding Model or not")
+    parser.add_argument("--pre", action="store_true", help="Use pretrained embedding Model or not")
     parser.add_argument("--emb", help="please provide pretrained Embedding Model.")
     parser.add_argument("--subword", action="store_true" , help="Use subword or not")
     parser.add_argument("--attention",action="store_true", help="Use attention or not")
-    parser.add_argument("--model", nargs='?', type=str, default="model/", 
-                        help="Directory to load models. [Default: \"model/\"]")
+    parser.add_argument("--model", nargs='?', type=str, default="model/correct_data", 
+                        help="Directory to load models. [Default: \"model/correct_data\"]")
     parser.add_argument("--mode", nargs='?', type=str, default="BLSTM",
                         help="different model architecture BLTSM or CNN [Default: \"BLSTM/\"]")
     args = parser.parse_args()
