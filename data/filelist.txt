@@ -1,4 +1,6 @@
 FastText_embedding.vec	
 label.json  
+UMLS_type_hierarchy_kptree.json
+MeSH_type_hierarchy_kptree.json
 smaller_preprocessed_sentence_keywords_labeled_subwords.tsv  
 smaller_preprocessed_sentence_keywords_labeled.tsv
