@@ -1,0 +1,9 @@
+sklearn
+tensorflow-gpu == 1.4.1
+nltk
+pandas
+tqdm
+seaborn
+keras == 2.1.5
+gensim == 3.4.0
+
