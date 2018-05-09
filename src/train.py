@@ -15,9 +15,9 @@ from keras.callbacks import EarlyStopping, ModelCheckpoint, Callback
 from nn_model import BLSTM, CNN
 
 # Training w/o pretrained
-# CUDA_VISIBLE_DEVICES=0 python ./src/train.py --pre=False --mode=[CNN,BLSTM]
+# CUDA_VISIBLE_DEVICES=0 python ./src/train.py --mode=[CNN,BLSTM]
 # Training w/ pretrained
-# CUDA_VISIBLE_DEVICES=0 python ./src/train.py --pre=True --emb=data/FastText_embedding.vec --mode=[CNN,BLSTM]
+# CUDA_VISIBLE_DEVICES=0 python ./src/train.py --pre --emb=data/FastText_embedding.vec --mode=[CNN,BLSTM]
 
 # Additional option --subword --attention
 
