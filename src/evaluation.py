@@ -4,6 +4,7 @@ from scipy import sparse
 import argparse, json
 import pickle as pkl
 from utils import split_data
+from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import MultiLabelBinarizer
 from sklearn.metrics import precision_recall_fscore_support 
 from fastText_model import fastText # pretrain-model
@@ -15,10 +16,10 @@ from nn_model import BLSTM, CNN
 from tqdm import tqdm
 
 # simply output prediction
-# CUDA_VISIBLE_DEVICES=1 python ./src/evaluation.py --model_path=wo_pretrained/... --model_type=[BLSTM,CNN] [--subword] [--attention]
+# CUDA_VISIBLE_DEVICES=1 python ./src/evaluation.py --model_path=... --model_type=[BLSTM,CNN] [--subword] [--attention]
 
 # visualize
-# CUDA_VISIBLE_DEVICES=1 python ./src/evaluation.py --model_path=wo_pretrained/... --model_type=[BLSTM,CNN] [--subword] [--attention] --visualize > visualize.txt
+# CUDA_VISIBLE_DEVICES=1 python ./src/evaluation.py --model_path=... --model_type=[BLSTM,CNN] [--subword] [--attention] --visualize > visualize.txt
 
 # Feature-parameter
 MAX_NUM_WORDS = 30000

@@ -160,8 +160,8 @@ if __name__ == '__main__':
     parser.add_argument("--emb", help="please provide pretrained Embedding Model.")
     parser.add_argument("--subword", action="store_true" , help="Use subword or not")
     parser.add_argument("--attention",action="store_true", help="Use attention or not")
-    parser.add_argument("--model", nargs='?', type=str, default="model/correct_data", 
-                        help="Directory to load models. [Default: \"model/correct_data\"]")
+    parser.add_argument("--model", nargs='?', type=str, default="model/", 
+                        help="Directory to load models. [Default: \"model/\"]")
     parser.add_argument("--mode", nargs='?', type=str, default="BLSTM",
                         help="different model architecture BLTSM or CNN [Default: \"BLSTM/\"]")
     args = parser.parse_args()

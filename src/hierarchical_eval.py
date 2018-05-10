@@ -7,11 +7,11 @@ from utils import write_to_file, readlines, merge_dict
 
 """
 python src/hierarchical_eval.py --labels=data/label.json \
---mention=test_mention_list.txt --prediction=sample_pred_label.txt \
+--mention=mention_list.txt --prediction=... \
 --k_parents=5 --hierarchy=data/
 
 python src/hierarchical_eval.py --labels=data/label.json \
---mention=test_mention_list.txt --prediction=sample_pred_label.txt \
+--mention=mention_list.txt --prediction=...
 --k_parents=5 --hierarchy=data/ --merge
 """
 
